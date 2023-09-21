@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Update number 1 ben yu is hot
         </a>
       </header>
     </div>
