@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Update number 1 ben yu is hot
+          i love ben yu code
         </a>
       </header>
     </div>
