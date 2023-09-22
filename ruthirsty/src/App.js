@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          i love ben yu code
+          Alec Choi loves ben yu 
         </a>
       </header>
     </div>
