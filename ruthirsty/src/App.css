@@ -4,17 +4,17 @@
 
 
 .App-header {
-  background-color: #ffffff;
+  background-color: #CC0033;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: rgb(255, 0, 0);
+  color: rgb(255, 255, 255);
 }
 
-.App-link {
+App-link {
   color: #984747;
 }
 
@@ -22,29 +22,34 @@ h1{
   position: absolute;
   top: 0;
 }
+
+h2{
+  font-family: "Balloon"
+  
+}
 .clickable-box div {
-  width: 100px;
+  width: 120px;
   height: 50px;
-  background-color: #f60000;
+  background-color: #ffffff;
   text-align: center;
   line-height: 50px;
-  color: white;
+  color: #CC0033;
   cursor: pointer;
   padding: 20px;
-  border-radius: 30%;  /* Makes the box circular */
-  font-family: "Comic Sans MS"
+  border-radius: 10%;  /* Makes the box circular */
+  font-family: "Balloon"
 
 
 }
 
 #busch{
   position: absolute;
-  top: 100px;
+  bottom: 250px;
   left: 100px;
 }
 #livi{
   position: absolute;
-  top: 100px;
+  bottom: 250px;
   right: 100px;
 }
 #ca{
@@ -66,6 +71,6 @@ h1{
 
 
 #header{
-  font-family: "Balloon", cursive;
+  font-family: "Balloon";
 }
 
