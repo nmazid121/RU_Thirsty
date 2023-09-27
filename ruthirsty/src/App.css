@@ -46,21 +46,25 @@ h2{
   position: absolute;
   bottom: 250px;
   left: 100px;
+  text-decoration: none;
 }
 #livi{
   position: absolute;
   bottom: 250px;
   right: 100px;
+  text-decoration: none;
 }
 #ca{
   position: absolute;
   bottom: 100px;
   left: 100px;
+  text-decoration: none;
 }
 #cd{
   position: absolute;
   bottom: 100px;
   right: 100px;
+  text-decoration: none;
 }
 
 
