@@ -4,7 +4,7 @@
 
 
 .App-header {
-  background-color: #CC0033;
+  background-color: #FCFFE7;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -12,65 +12,66 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: rgb(255, 255, 255);
+  height: 100vh;
 }
 
-App-link {
-  color: #984747;
-}
 
-h1{
+#logo{
+  transform: rotate(-90deg);
+  width: 150px;
+  height: auto;
   position: absolute;
-  top: 0;
+  top:-10%;
+
 }
 
 h2{
-  font-family: "Balloon"
-  
+  font-family: "Balloon";
+  margin-top: -50%;
+  color: #EB455F;
+
 }
 .clickable-box div {
-  width: 120px;
-  height: 50px;
-  background-color: #ffffff;
+  width: 48px;
+  height: 48px;
+  background-color: #2B3467;
   text-align: center;
   line-height: 50px;
-  color: #CC0033;
+  color: #BAD7E9;
   cursor: pointer;
   padding: 20px;
   border-radius: 10%;  /* Makes the box circular */
-  font-family: "Balloon"
-
+  font-family: "Balloon";
+  font-size: 50%;
+  display: flex;
+  gap: 20px; 
 
 }
 
 #busch{
-  position: absolute;
-  bottom: 250px;
-  left: 100px;
-  text-decoration: none;
+  top: 67%;
+  left: 35%;
 }
 #livi{
-  position: absolute;
-  bottom: 250px;
-  right: 100px;
-  text-decoration: none;
+  top: 67%;
+  right: 35%;
 }
-#ca{
-  position: absolute;
-  bottom: 100px;
-  left: 100px;
-  text-decoration: none;
-}
+
+  #ca {
+    bottom: 10%;
+    left: 35%;
+  }
+
 #cd{
-  position: absolute;
-  bottom: 100px;
-  right: 100px;
-  text-decoration: none;
+  bottom: 10%;
+  right: 35%;
 }
 
-
-
-
-
+#busch, #livi, #ca, #cd {
+  width: 48px;  /* or use a larger value if preferred */
+  height: 48px;  /* ensure width and height are equal for a square shape */
+  position: absolute;
+}
 
 
 
