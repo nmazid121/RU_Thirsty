@@ -1,15 +1,11 @@
 import './App.css';
-import logo from './Logo.PNG';
-
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
 
-
-        < img id = "logo" src={logo} alt="Logo"/>    
-
+        <h1 id = "header">RU Thirsty</h1>
         <h2>Where RU?</h2>
 
         <a id = "busch" href="https://www.example.com" class="clickable-box">
