@@ -25,6 +25,10 @@
 
 }
 
+h1 {
+  color: black;
+}
+
 h2{
   font-family: "Balloon";
   margin-top: -50%;
@@ -42,6 +46,7 @@ h2{
   padding: 20px;
   border-radius: 10%;  /* Makes the box circular */
   font-family: "Balloon";
+  font-weight: bold;
   font-size: 50%;
   display: flex;
   gap: 20px; 
@@ -70,10 +75,30 @@ h2{
 #busch, #livi, #ca, #cd {
   width: 48px;  /* or use a larger value if preferred */
   height: 48px;  /* ensure width and height are equal for a square shape */
-  position: absolute;
+  position: fixed;
 }
 
+.buschButton {
+  width: 60px;
+  height: 60px;
+  background-color: #2B3467;
+  text-align: center;
+  line-height: 50px;
+  color: #BAD7E9;
+  cursor: pointer;
+  padding: 20px;
+  border-radius: 10%;  /* Makes the box circular */
+  font-family: "Balloon";
+  font-weight: bold;
+  font-size: 50%;
+  display: flex;
+  gap: 20px; 
+}
 
+.homeButton {
+
+  
+}
 
 #header{
   font-family: "Balloon";

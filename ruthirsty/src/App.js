@@ -1,49 +1,38 @@
-import './App.css';
+import React from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import logo from './Logo.PNG';
+import './App.css';
 
+function Home() {
+  return <h2>Home</h2>;
+}
+
+function Busch() {
+  return <h1>Busch Page yo yo test </h1>;
+}
 
 function App() {
+  const navigate = useNavigate();
+
+  const navigateBusch = () => {
+    navigate('/busch');
+  };
+
+  const navigateHome = () => {
+    navigate('/home');
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-
-
-        < img id = "logo" src={logo} alt="Logo"/>    
-
+        <img id="logo" src={logo} alt="Logo" />
         <h2>Where RU?</h2>
-
-        <a id = "busch" href="https://www.example.com" class="clickable-box">
-          <div>
-            Busch
-          </div>
-        </a>
-
-        <a id = "livi" href="https://www.example.com" class="clickable-box">
-          <div>
-            Livingston
-          </div>
-        </a>
-
-        <a id = "ca" href="https://www.example.com" class="clickable-box">
-          <div>
-            C/A
-          </div>
-        </a>
-
-        <a id = "cd" href="https://www.example.com" class="clickable-box">
-          <div>
-            C/D
-          </div>
-        </a>
-        
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <p></p>
-        </a>
+        <button className = "buschButton" onClick={navigateBusch}>Busch</button>
+        <button className = "homeButton" onClick={navigateHome}>Home</button>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/busch" element={<Busch />} />
+        </Routes>
       </header>
     </div>
   );
