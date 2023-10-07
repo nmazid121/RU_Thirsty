@@ -5,6 +5,7 @@ import Busch from './Busch';
 import Home from './Home';
 import Livingston from './Livingston';
 import CollegeAve from './CollegeAve';
+import Coo from './CookDoug';
 import CookDoug from './CookDoug';
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
         <Route path="/busch"element={<Busch />} />
         <Route path="/livingston"element={<Livingston />} />
         <Route path="/collegeave"element={<CollegeAve />} />
-
+        <Route path="/cookdoug"element={<CookDoug />} />
       </Routes>
   );
 }
