@@ -95,6 +95,23 @@ h2{
   gap: 20px; 
 }
 
+.livingstonButton {
+  width: 60px;
+  height: 60px;
+  background-color: #2B3467;
+  text-align: center;
+  line-height: 50px;
+  color: #BAD7E9;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10%;  /* Makes the box circular */
+  font-family: "Balloon";
+  font-weight: bold;
+  font-size: 50%;
+  display: flex;
+  gap: 20px; 
+}
+
 .homeButton {
   width: 60px;
   height: 60px;

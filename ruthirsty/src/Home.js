@@ -10,6 +10,10 @@ function Home() {
     navigate('/busch');
     };
 
+    const navigateLivingston = () => {
+    navigate('/livingston');
+    };
+
     return (
     <div className="App">
         <header className="App-header">
@@ -17,6 +21,9 @@ function Home() {
           <h2>Where RU?</h2>
           <button className="buschButton" onClick={navigateBusch}>
             Busch
+            </button>
+          <button className="livingstonButton" onClick={navigateLivingston}>
+            Livingston
             </button>
           </header>
         </div>
