@@ -14,6 +14,14 @@ function Home() {
     navigate('/livingston');
     };
 
+    const navigateCollegeAve = () => {
+      navigate('/collegeave');
+    };
+
+    const navigateCookDoug = () => {
+      navigate('/cookdoug')
+    }
+
     return (
     <div className="App">
         <header className="App-header">
@@ -25,6 +33,12 @@ function Home() {
           <button className="livingstonButton" onClick={navigateLivingston}>
             Livingston
             </button>
+          <button className="collegeaveButton" onClick={navigateCollegeAve}>
+            CollegeAve
+          </button>
+          <button className="cookdougButton" onClick={navigateCookDoug}>
+            CookDoug
+          </button>
           </header>
         </div>
     );
