@@ -5,7 +5,6 @@ import Busch from './Busch';
 import Home from './Home';
 import Livingston from './Livingston';
 import CollegeAve from './CollegeAve';
-import Coo from './CookDoug';
 import CookDoug from './CookDoug';
 
 function App() {
