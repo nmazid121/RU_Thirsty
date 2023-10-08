@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import logo from './images/Logo.PNG';
+import waterIcon from './images/waterIcon.png'
 import { useNavigate } from 'react-router-dom';
 import { GoogleMap, Marker, LoadScript } from '@react-google-maps/api';
 
@@ -39,7 +40,8 @@ function Busch() {
                 onClick={onMapClick}
                 >
                 {markers.map((marker, index) => (
-                    <Marker key={index} position={{ lat: marker.lat, lng: marker.lng }} />
+                    <Marker key={index} position={{ lat: marker.lat, lng: marker.lng }} 
+                    icon = {{url: waterIcon, scaledSize: new window.google.maps.Size(50, 50)}} />
                 ))}
                 </GoogleMap>
             </LoadScript>
