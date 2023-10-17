@@ -43,7 +43,7 @@ function Busch() {
                 <button className="homeButton" onClick={navigateHome}>
                     Home
                 </button>
-                <LoadScript googleMapsApiKey="AIzaSyBEdVNIaYp-brYH2bDBj9b5H82a_ImiACc">
+                <LoadScript googleMapsApiKey="">
                     <GoogleMap
                         mapContainerStyle={containerStyle}
                         center={center}
