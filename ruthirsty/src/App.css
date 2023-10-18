@@ -17,14 +17,13 @@
 }
 
 #logo {
-  transform: rotate(-90deg);
   width: 150px;
   height: auto;
-  position: absolute;
-  top: -5%;
-  left: 65%;
-  transform: rotate(-90deg) translate(-50%, -50%);  /* Adjusted */
+  position: relative;
+  transform: rotate(-90deg);
   z-index: 1;
+  margin-bottom: -20px; /* Adjust value as needed */
+
 }
 
 h2 {
@@ -33,6 +32,8 @@ h2 {
   color: #EB455F;
   position: relative;  /* New addition */
   z-index: 2;  /* New addition */
+  margin-top: -50px; /* Adjust value as needed */
+
 }
 .clickable-box div {
   width: 48px;
@@ -168,3 +169,8 @@ h2 {
   font-family: "Balloon";
 }
 
+.homeButton:hover {
+  background-color: #FFFFFF; /* Change to a color of your choice */
+}
+
+/* Add any other hover effects or styles as required */
