@@ -118,11 +118,13 @@ function Busch() {
                                         placeholder="What Building?"
                                     />
                                     <br />
-                                    <input 
+                                    <textarea 
                                         type="text" 
                                         value={locationDescription}
                                         onChange={(e) => setLocationDescription(e.target.value)}
                                         placeholder="Description of Location"
+                                        rows = {3}
+                                        cols = {30}
                                     />
                                     <br />
                                     <button onClick={handleOkClick}>OK</button>
