@@ -43,6 +43,7 @@ function Busch() {
             setShowConfirmation(false);
         }, 2000);
     };
+    
 
     const handleInfoWindowClose = () => {
         setMarkers(prevMarkers => {
@@ -54,6 +55,8 @@ function Busch() {
         setSelectedMarker(null);
     };
 
+    
+
     useEffect(() => {
         return () => {
             if (confirmationTimeout.current) {
@@ -61,6 +64,33 @@ function Busch() {
             }
         };
     }, []);
+
+    // get to the user location 
+    const getUserLocation = () => {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              const userPos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude,
+              };
+              setMarkers([...markers, userPos]); // Add user's location to markers state
+              setSelectedMarker(userPos); // Set the selected marker to user's location
+            },
+            () => {
+              // Handle geolocation error
+              // You can implement your own error handling logic here
+              console.error("Error: The Geolocation service failed.");
+            }
+          );
+        } else {
+          // Handle browser not supporting geolocation
+          // You can implement your own error handling logic here
+          console.error("Error: Your browser doesn't support geolocation.");
+        }
+      };      
+      
+    
 
     return (
         <div className="Busch">
@@ -87,7 +117,8 @@ function Busch() {
                 <button className="homeButton" onClick={navigateHome}>
                     Home
                 </button>
-                <LoadScript googleMapsApiKey="PASTE API KEY HERE">
+                <button onClick={getUserLocation}>Show My Location</button>
+                <LoadScript googleMapsApiKey="AIzaSyBEdVNIaYp-brYH2bDBj9b5H82a_ImiACc">
                     <GoogleMap
                         mapContainerStyle={containerStyle}
                         center={center}
