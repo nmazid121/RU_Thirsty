@@ -1,7 +1,7 @@
 const express = require('express');
-const mongoose = require('mongoose');
+const mongoose = require('./db');
 const cors = require('cors');
-const waterDropletRoutes = require('/Users/noobd/ruthirsty-app/RU_Thirsty/ruthirsty/server/WaterDropletRoutes'); // Import your routes
+const waterDropletRoutes = require('./WaterDropletRoutes'); // Import your routes
 
 const app = express();
 
@@ -13,7 +13,11 @@ app.use(cors());
 require('./db'); // Assuming your MongoDB connection setup code is in db.js
 
 // Routes
-app.use('/Users/noobd/ruthirsty-app/RU_Thirsty/ruthirsty/server/WaterDropletRoutes', waterDropletRoutes); // Use your water droplet routes at /api/waterDroplets
+app.use('/api/waterDroplets', waterDropletRoutes); // Use your water droplet routes at /api/waterDroplets
+
+app.get('/', (req, res) => {
+  res.send('Hello, World!');
+});
 
 // Start the server
 const PORT = process.env.PORT || 5000;

@@ -114,7 +114,7 @@ function Busch() {
                     Home
                 </button>
                 <button onClick={getUserLocation}>Show My Location</button>
-                <LoadScript googleMapsApiKey="PASTE API KEY">
+                <LoadScript googleMapsApiKey="AIzaSyBEdVNIaYp-brYH2bDBj9b5H82a_ImiACc">
                     <GoogleMap
                         mapContainerStyle={containerStyle}
                         center={center}
