@@ -26,6 +26,12 @@ function Busch() {
     };
 
     const onMapClick = (event) => {
+        // If an InfoWindow is already open, remove the last pin and close the InfoWindow
+        if (selectedMarker) {
+            handleInfoWindowClose();
+            return;
+        }
+        
         const newMarker = { lat: event.latLng.lat(), lng: event.latLng.lng() };
         setMarkers([...markers, newMarker]);
         setSelectedMarker(newMarker);
@@ -43,7 +49,6 @@ function Busch() {
             setShowConfirmation(false);
         }, 2000);
     };
-    
 
     const handleInfoWindowClose = () => {
         setMarkers(prevMarkers => {
@@ -55,17 +60,6 @@ function Busch() {
         setSelectedMarker(null);
     };
 
-    
-
-    useEffect(() => {
-        return () => {
-            if (confirmationTimeout.current) {
-                clearTimeout(confirmationTimeout.current);
-            }
-        };
-    }, []);
-
-    // get to the user location 
     const getUserLocation = () => {
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(
@@ -74,23 +68,25 @@ function Busch() {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude,
               };
-              setMarkers([...markers, userPos]); // Add user's location to markers state
-              setSelectedMarker(userPos); // Set the selected marker to user's location
+              setMarkers([...markers, userPos]); 
+              setSelectedMarker(userPos); 
             },
             () => {
-              // Handle geolocation error
-              // You can implement your own error handling logic here
               console.error("Error: The Geolocation service failed.");
             }
           );
         } else {
-          // Handle browser not supporting geolocation
-          // You can implement your own error handling logic here
           console.error("Error: Your browser doesn't support geolocation.");
         }
-      };      
-      
-    
+    };
+
+    useEffect(() => {
+        return () => {
+            if (confirmationTimeout.current) {
+                clearTimeout(confirmationTimeout.current);
+            }
+        };
+    }, []);
 
     return (
         <div className="Busch">
@@ -118,7 +114,7 @@ function Busch() {
                     Home
                 </button>
                 <button onClick={getUserLocation}>Show My Location</button>
-                <LoadScript googleMapsApiKey="AIzaSyBEdVNIaYp-brYH2bDBj9b5H82a_ImiACc">
+                <LoadScript googleMapsApiKey="PASTE API KEY">
                     <GoogleMap
                         mapContainerStyle={containerStyle}
                         center={center}
@@ -154,8 +150,8 @@ function Busch() {
                                         value={locationDescription}
                                         onChange={(e) => setLocationDescription(e.target.value)}
                                         placeholder="Description of Location"
-                                        rows = {3}
-                                        cols = {30}
+                                        rows={3}
+                                        cols={30}
                                     />
                                     <br />
                                     <button onClick={handleOkClick}>OK</button>
