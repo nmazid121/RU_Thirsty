@@ -100,21 +100,40 @@ function Busch() {
                         top: '10%', 
                         left: '50%', 
                         transform: 'translate(-50%, -50%)', 
-                        color: 'blue', 
+                        color: '#2C2C2C', 
                         fontSize: '24px', 
                         fontWeight: 'bold', 
-                        backgroundColor: 'white', 
-                        padding: '10px', 
-                        borderRadius: '8px'
+                        backgroundColor: '#E0F7FA', 
+                        padding: '20px', 
+                        borderRadius: '15px',
+                        boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)'
                     }}>
                         Water fountain has been marked!
                     </div>
                 }
-                <button className="homeButton" onClick={navigateHome}>
+                <button className="homeButton" onClick={navigateHome} style={{ 
+                        margin: '10px',  // Added margin for spacing
+                    }}>
                     Home
                 </button>
-                <button onClick={getUserLocation}>Show My Location</button>
-                <LoadScript googleMapsApiKey="AIzaSyBEdVNIaYp-brYH2bDBj9b5H82a_ImiACc">
+                <button 
+                    onClick={getUserLocation} 
+                    style={{ 
+                        backgroundColor: '#00838F',  // Background color
+                        color: 'white',  // Text color
+                        padding: '10px 20px',  // Padding
+                        borderRadius: '8px',  // Rounded corners
+                        border: 'none',  // Remove border
+                        cursor: 'pointer',  // Cursor pointer on hover
+                        fontSize: '16px',  // Font size
+                        fontWeight: 'bold',  // Bold text
+                        transition: 'background-color 0.3s',  // Transition effect
+                        margin: '10px'
+                    }}
+                    onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#006064'}  // Darker background on hover
+                    onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#00838F'}  // Restore background color
+                >Show My Location</button>
+                <LoadScript googleMapsApiKey="Paste API key here">
                     <GoogleMap
                         mapContainerStyle={containerStyle}
                         center={center}
@@ -137,24 +156,36 @@ function Busch() {
                                 position={selectedMarker}
                                 onCloseClick={handleInfoWindowClose}
                             >
-                                <div style={{ fontFamily: 'Times New Roman', width: '200px' }}>
+                                <div style={{ 
+                                    fontFamily: 'Courier New, monospace', 
+                                    backgroundColor: '#E0F7FA', 
+                                    padding: '10px', 
+                                    borderRadius: '8px', 
+                                    boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)' 
+                                }}>
                                     <input 
-                                        type="text" 
+                                        style={{ width: '100%', marginBottom: '10px', padding: '5px', borderRadius: '4px', fontFamily:'Courier New, monospace, Arial, sans-serif',color: '#000000',fontWeight: 'bold' }}
+                                        type="text"
                                         value={locationName}
                                         onChange={(e) => setLocationName(e.target.value)}
                                         placeholder="What Building?"
                                     />
                                     <br />
                                     <textarea 
+                                        style={{ width: '100%', padding: '5px', borderRadius: '4px' }}
                                         type="text" 
                                         value={locationDescription}
                                         onChange={(e) => setLocationDescription(e.target.value)}
-                                        placeholder="Description of Location"
+                                        placeholder="Description of Location(ie. landmarks and floor number?)"
                                         rows={3}
-                                        cols={30}
                                     />
                                     <br />
-                                    <button onClick={handleOkClick}>OK</button>
+                                    <button 
+                                        style={{ marginTop: '10px', backgroundColor: '#00838F', color: 'white', padding: '5px 10px', borderRadius: '4px', border: 'none', cursor: 'pointer' }}
+                                        onClick={handleOkClick}
+                                    >
+                                        OK
+                                    </button>
                                 </div>
                             </InfoWindow>
                         )}
