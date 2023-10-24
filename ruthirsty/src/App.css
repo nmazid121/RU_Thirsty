@@ -2,175 +2,57 @@
   text-align: center;
 }
 
-
 .App-header {
   background-color: #FCFFE7;
   min-height: 150vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* Aligns children to the top */
   font-size: calc(10px + 2vmin);
   color: rgb(255, 255, 255);
   height: 100vh;
-  position: relative;  /* New addition */
+  padding-top: 10px; /* Reducing padding at the top */
 }
 
 #logo {
-  width: 150px;
+  width: 300px;
   height: auto;
-  position: relative;
+  margin: 0;
   transform: rotate(-90deg);
-  z-index: 1;
-  margin-bottom: -20px; /* Adjust value as needed */
-
+  margin-top: -150px; 
 }
 
 h2 {
   font-family: "Balloon";
-  margin-top: 0;  /* Adjusted */
   color: #EB455F;
-  position: relative;  /* New addition */
-  z-index: 2;  /* New addition */
-  margin-top: -50px; /* Adjust value as needed */
-
+  margin-top: -150px;  /* Adjust as needed to reduce space below the logo */
 }
-.clickable-box div {
-  width: 48px;
-  height: 48px;
+
+
+/* Common styles for all buttons */
+button {
+  width: 120px;
+  height: 120px;
   background-color: #2B3467;
   text-align: center;
-  line-height: 50px;
+  line-height: 110px;
   color: #BAD7E9;
   cursor: pointer;
-  padding: 20px;
-  border-radius: 10%;  /* Makes the box circular */
+  margin: 10px; 
+  border-radius: 10%;  
   font-family: "Balloon";
   font-weight: bold;
-  font-size: 50%;
-  display: flex;
-  gap: 20px; 
-
+  font-size: 1em;
+  border: none;
+  outline: none;
 }
 
-#busch{
-  top: 67%;
-  left: 35%;
+/* Creating a button grid container */
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
 }
-#livi{
-  top: 67%;
-  right: 35%;
-}
-
-  #ca {
-    bottom: 10%;
-    left: 35%;
-  }
-
-#cd{
-  bottom: 10%;
-  right: 35%;
-}
-
-#busch, #livi, #ca, #cd {
-  width: 48px;  /* or use a larger value if preferred */
-  height: 48px;  /* ensure width and height are equal for a square shape */
-  position: fixed;
-}
-
-.buschButton {
-  width: 60px;
-  height: 60px;
-  background-color: #2B3467;
-  text-align: center;
-  line-height: 50px;
-  color: #BAD7E9;
-  cursor: pointer;
-  padding: 10px;
-  border-radius: 10%;  /* Makes the box circular */
-  font-family: "Balloon";
-  font-weight: bold;
-  font-size: 50%;
-  display: flex;
-  gap: 20px; 
-}
-
-.collegeaveButton {
-  width: 60px;
-  height: 60px;
-  background-color: #2B3467;
-  text-align: center;
-  line-height: 50px;
-  color: #BAD7E9;
-  cursor: pointer;
-  padding: 10px;
-  border-radius: 10%;  /* Makes the box circular */
-  font-family: "Balloon";
-  font-weight: bold;
-  font-size: 50%;
-  display: flex;
-  gap: 20px; 
-}
-
-.cookdougButton {
-  width: 60px;
-  height: 60px;
-  background-color: #2B3467;
-  text-align: center;
-  line-height: 50px;
-  color: #BAD7E9;
-  cursor: pointer;
-  padding: 10px;
-  border-radius: 10%;  /* Makes the box circular */
-  font-family: "Balloon";
-  font-weight: bold;
-  font-size: 50%;
-  display: flex;
-  gap: 20px; 
-  
-}
-
-.livingstonButton {
-  width: 60px;
-  height: 60px;
-  background-color: #2B3467;
-  text-align: center;
-  line-height: 50px;
-  color: #BAD7E9;
-  cursor: pointer;
-  padding: 10px;
-  border-radius: 10%;  /* Makes the box circular */
-  font-family: "Balloon";
-  font-weight: bold;
-  font-size: 50%;
-  display: flex;
-  gap: 20px; 
-}
-
-.homeButton {
-  width: 60px;
-  height: 60px;
-  background-color: #2B3467;
-  text-align: center;
-  line-height: 50px;
-  color: #BAD7E9;
-  cursor: pointer;
-  padding: 10px;
-  border-radius: 10%;  /* Makes the box circular */
-  font-family: "Balloon";
-  font-weight: bold;
-  font-size: 50%;
-  display: flex;
-  gap: 20px; 
-  
-}
-
-#header{
-  font-family: "Balloon";
-}
-
-.homeButton:hover {
-  background-color: #FFFFFF; /* Change to a color of your choice */
-}
-
-/* Add any other hover effects or styles as required */
