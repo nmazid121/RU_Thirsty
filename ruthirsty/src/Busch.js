@@ -133,7 +133,7 @@ function Busch() {
                     onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#006064'}  // Darker background on hover
                     onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#00838F'}  // Restore background color
                 >Show My Location</button>
-                <LoadScript googleMapsApiKey="Paste API key here">
+                <LoadScript googleMapsApiKey="PASTE API KEY HERE">
                     <GoogleMap
                         mapContainerStyle={containerStyle}
                         center={center}
