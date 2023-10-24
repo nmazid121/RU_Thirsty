@@ -26,7 +26,7 @@ function Home() {
       <div className="App">
           <header className="App-header">
             <img id="logo" src={logo} alt="Logo" />
-            <h2>Where RU?</h2>
+            <h1>Where RU?</h1>
             <div className="button-grid">
               <button className="buschButton" onClick={navigateBusch}>
                   Busch

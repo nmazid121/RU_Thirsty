@@ -93,7 +93,7 @@ function Busch() {
         <div className="Busch">
             <header className="App-header">
                 <img id="logo" src={logo} alt="Logo" />
-                <h2>You are at Busch</h2>
+                <h1>You are at Busch</h1>
                 {showConfirmation && 
                     <div style={{ 
                         position: 'fixed', 
@@ -112,11 +112,15 @@ function Busch() {
                         Water fountain has been marked!
                     </div>
                 }
-                <button className="homeButton" onClick={navigateHome} style={{ 
-                        margin: '10px',  // Added margin for spacing
-                    }}>
+               <div style={{
+                     display: 'flex',       // Using flex for easier alignment and spacing
+                     justifyContent: 'center',  // Center-align the buttons horizontally
+                     gap: '10px'              // Spacing between the buttons
+                }}>
+                    <button className="homeButton" onClick={navigateHome}>
                     Home
                 </button>
+                </div>
                 <button 
                     onClick={getUserLocation} 
                     style={{ 
@@ -134,7 +138,7 @@ function Busch() {
                     onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#006064'}  // Darker background on hover
                     onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#00838F'}  // Restore background color
                 >Show My Location</button>
-                <LoadScript googleMapsApiKey="PASTE API KEY HERE">
+                <LoadScript googleMapsApiKey="AIzaSyBEdVNIaYp-brYH2bDBj9b5H82a_ImiACc">
                     <GoogleMap
                         mapContainerStyle={containerStyle}
                         center={center} // Use the separate center state here
@@ -181,8 +185,23 @@ function Busch() {
                                         rows={3}
                                     />
                                     <br />
+
+                                    
                                     <button 
-                                        style={{ marginTop: '10px', backgroundColor: '#00838F', color: 'white', padding: '5px 10px', borderRadius: '4px', border: 'none', cursor: 'pointer' }}
+                                        style={{ 
+                                            marginTop: '10px', 
+                                            backgroundColor: '#00838F', 
+                                            color: 'white', 
+                                            padding: '0 15px',  // Adjusted vertical padding to zero
+                                            lineHeight: '24px', // This can help center the text vertically
+                                            height: '24px',     // Explicit height for the button
+                                            borderRadius: '4px', 
+                                            border: 'none', 
+                                            cursor: 'pointer', 
+                                            fontSize: '12px',
+                                            width: '60px', 
+                                            textAlign: 'center' // Ensure text is centered horizontally
+                                        }}
                                         onClick={handleOkClick}
                                     >
                                         OK
