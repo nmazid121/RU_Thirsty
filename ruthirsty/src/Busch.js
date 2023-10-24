@@ -120,7 +120,7 @@ function Busch() {
                     Home
                 </button>
                 </div>
-                <button 
+                <button className = "ShowMyLocation"
                     onClick={getUserLocation} 
                     style={{ 
                         backgroundColor: '#00838F',  // Background color
@@ -132,12 +132,12 @@ function Busch() {
                         fontSize: '16px',  // Font size
                         fontWeight: 'bold',  // Bold text
                         transition: 'background-color 0.3s',  // Transition effect
-                        margin: '10px'
+                        marginBottom: '10px'
                     }}
                     onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#006064'}  // Darker background on hover
                     onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#00838F'}  // Restore background color
                 >Show My Location</button>
-                <LoadScript googleMapsApiKey="AIzaSyBEdVNIaYp-brYH2bDBj9b5H82a_ImiACc">
+                <LoadScript googleMapsApiKey="PASTE API KEY HERE">
                     <GoogleMap
                         mapContainerStyle={containerStyle}
                         center={center}

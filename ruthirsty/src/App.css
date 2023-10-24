@@ -56,12 +56,14 @@ button {
   align-items: center;
   justify-content: center;
 }
-.buttonContainer {
-  padding-left: 4000px;      /* This will push the container's content to the right */
+
+
+.homeButton {
+  margin-right: 150px;  /* Add some space between the two buttons */
+  margin-bottom: -150px;
 
 }
 
-.homeButton {
-  margin-right: 300px;  /* Add some space between the two buttons */
-  margin-bottom: -150px;
+.ShowMyLocation {
+  margin-left: 150px;  /* Add some space between the two buttons */
 }
