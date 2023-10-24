@@ -41,6 +41,7 @@ function Home() {
                   CookDoug
               </button>
             </div>
+            <h2> Alec Choi, Nabhan Mazid, and Ben Yu </h2>
           </header>
       </div>
   );

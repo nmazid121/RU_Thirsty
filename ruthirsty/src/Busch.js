@@ -7,7 +7,7 @@ import { GoogleMap, Marker, LoadScript, InfoWindow } from '@react-google-maps/ap
 
 const containerStyle = {
     width: '90%',
-    height: '640px',
+    height: '700px',
 };
 
 function Busch() {
@@ -138,7 +138,7 @@ function Busch() {
                     onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#006064'}  // Darker background on hover
                     onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#00838F'}  // Restore background color
                 >Show My Location</button>
-                <LoadScript googleMapsApiKey="PASTE API KEY HERE">
+                <LoadScript googleMapsApiKey="AIzaSyBEdVNIaYp-brYH2bDBj9b5H82a_ImiACc">
                     <GoogleMap
                         mapContainerStyle={containerStyle}
                         center={center} // Use the separate center state here
