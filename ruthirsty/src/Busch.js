@@ -7,11 +7,12 @@ import { GoogleMap, Marker, LoadScript, InfoWindow } from '@react-google-maps/ap
 
 const containerStyle = {
     width: '90%',
-    height: '400px',
+    height: '640px',
 };
 
 function Busch() {
-    const center = { lat: 40.5221, lng: -74.4572 };
+    const initialCenter = { lat: 40.5221, lng: -74.4572 };
+    const [center] = React.useState(initialCenter);
     const [markers, setMarkers] = React.useState([]);
     const [selectedMarker, setSelectedMarker] = React.useState(null);
     const [locationName, setLocationName] = React.useState('');
@@ -136,7 +137,7 @@ function Busch() {
                 <LoadScript googleMapsApiKey="PASTE API KEY HERE">
                     <GoogleMap
                         mapContainerStyle={containerStyle}
-                        center={center}
+                        center={center} // Use the separate center state here
                         zoom={15}
                         onClick={onMapClick}
                         mapTypeId={'satellite'}
