@@ -23,8 +23,8 @@
   margin-top: -150px; 
 }
 
-h2 {
-  font-family: "Balloon";
+h1 {
+  font-family: "Courier New";
   color: #EB455F;
   margin-top: -150px;  /* Adjust as needed to reduce space below the logo */
 }
@@ -41,9 +41,9 @@ button {
   cursor: pointer;
   margin: 10px; 
   border-radius: 10%;  
-  font-family: "Balloon";
+  font-family: "Courier New";
   font-weight: bold;
-  font-size: 1em;
+  font-size: .8em;
   border: none;
   outline: none;
 }
@@ -55,4 +55,13 @@ button {
   gap: 20px;
   align-items: center;
   justify-content: center;
+}
+.buttonContainer {
+  padding-left: 4000px;      /* This will push the container's content to the right */
+
+}
+
+.homeButton {
+  margin-right: 300px;  /* Add some space between the two buttons */
+  margin-bottom: -150px;
 }
