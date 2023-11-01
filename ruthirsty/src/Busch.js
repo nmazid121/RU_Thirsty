@@ -27,29 +27,60 @@ function Busch() {
     };
 
     const onMapClick = (event) => {
-        // If an InfoWindow is already open, remove the last pin and close the InfoWindow
-        if (selectedMarker) {
-            handleInfoWindowClose();
-            return;
-        }
-        
-        const newMarker = { lat: event.latLng.lat(), lng: event.latLng.lng() };
-        setMarkers([...markers, newMarker]);
+        // Capture latitude and longitude of the marker
+        const lat = event.latLng.lat();
+        const lng = event.latLng.lng();
+    
+        // Create a copy of the existing markers array
+        const updatedMarkers = [...markers];
+    
+        // Create a new marker object
+        const newMarker = { lat, lng, name: locationName, description: locationDescription };
+
+    
+        // Add the new marker to the existing array
+        updatedMarkers.push(newMarker);
+    
+        // Update the markers state with the new array
+        setMarkers(updatedMarkers);
+    
         setSelectedMarker(newMarker);
         setLocationName('');
         setLocationDescription('');
-    };
+        console.log("Markers array: ", markers);
+    };    
+    
 
     const handleOkClick = () => {
         setShowConfirmation(true);
+        if (!selectedMarker) {
+            return;
+        }
+    
+        // Update the selected marker's properties with locationName and locationDescription
+        const updatedMarkers = markers.map((marker) => {
+            if (marker === selectedMarker) {
+                return {
+                    ...marker,
+                    name: locationName,
+                    description: locationDescription,
+                };
+            }
+            return marker;
+        });        
+    
+        setMarkers(updatedMarkers);
         setSelectedMarker(null);
+    
         if (confirmationTimeout.current) {
             clearTimeout(confirmationTimeout.current);
         }
         confirmationTimeout.current = setTimeout(() => {
             setShowConfirmation(false);
         }, 2000);
+        console.log("Markers array: ", updatedMarkers);
     };
+    
 
     const handleInfoWindowClose = () => {
         setMarkers(prevMarkers => {
