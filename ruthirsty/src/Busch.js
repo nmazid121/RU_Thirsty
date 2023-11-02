@@ -50,7 +50,6 @@ function Busch() {
         setLocationDescription('');
         console.log("Markers array: ", markers);
     };    
-    
 
     const handleOkClick = () => {
         setShowConfirmation(true);
@@ -71,9 +70,10 @@ function Busch() {
         });
         
         const newMarkerData = {
+            description: locationDescription,
             lat: selectedMarker.lat,
             lng: selectedMarker.lng,
-            // Add other necessary data if needed
+            name: locationName,
         };
         
         axios.post('http://localhost:5000/api/markers', newMarkerData)
@@ -99,12 +99,6 @@ function Busch() {
     
 
     const handleInfoWindowClose = () => {
-        setMarkers(prevMarkers => {
-            // Remove the last marker
-            const updatedMarkers = [...prevMarkers];
-            updatedMarkers.pop();
-            return updatedMarkers;
-        });
         setSelectedMarker(null);
     };
 
@@ -201,6 +195,8 @@ function Busch() {
                                 position={marker} 
                                 onClick={() => {
                                     setSelectedMarker(marker);
+                                    setLocationName(marker.name || '');
+                                    setLocationDescription(marker.description || '');
                                 }}
                                 icon={{url: waterIcon, scaledSize: new window.google.maps.Size(50, 50) }}
                             />
