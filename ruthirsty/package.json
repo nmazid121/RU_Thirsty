@@ -5,7 +5,7 @@
   "dependencies": {
     "@react-google-maps/api": "^2.19.2",
     "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
+    "@testing-library/react": "^10.0.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.0",
     "body-parser": "^1.20.2",
@@ -14,8 +14,8 @@
     "google-maps-react": "^2.0.6",
     "mongodb": "^6.2.0",
     "mongoose": "^7.6.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-router-dom": "^6.16.0",
     "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.4"
@@ -48,5 +48,13 @@
   "main": "index.js",
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "engines": {
+    "node": "20.x"
+  }
+  
+
+  
 }
+
+
