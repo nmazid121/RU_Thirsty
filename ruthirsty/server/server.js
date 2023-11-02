@@ -10,7 +10,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Connect to MongoDB Atlas
-const mongoUri = 'mongodb+srv://newUserYuh:FartPoop@cluster0.fv35vec.mongodb.net/?retryWrites=true&w=majority'; // Replace with your connection string from Atlas
+const mongoUri = 'mongodb+srv://newUserYuh:FartPoop@cluster0.fv35vec.mongodb.net/?retryWrites=true&w=majority';
 mongoose.connect(mongoUri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -33,25 +33,29 @@ const Marker = mongoose.model('Marker', markerSchema);
 // Express routes
 app.post('/api/markers', (req, res) => {
   const marker = new Marker(req.body);
-  marker.save((err) => {
-    if (err) {
+  marker.save()
+    .then(() => {
+      res.status(201).send('Marker saved');
+    })
+    .catch(err => {
       res.status(500).send('Error saving marker');
-      return;
-    }
-    res.status(201).send('Marker saved');
-  });
+    });
 });
 
 app.get('/api/markers', (req, res) => {
-  Marker.find({}, (err, markers) => {
-    if (err) {
-      res.status(500).send('Error fetching markers');
-      return;
-    }
-    res.json(markers);
-  });
+  Marker.find({})
+    .then(markers => {
+      res.json(markers);
+    })
+    .catch(err => {
+      res.status(500).send('Error retrieving markers');
+    });
+});
+
+app.get('/', (req, res) => {
+  res.send('Hello, World!');
 });
 
 app.listen(PORT, () => {
-    console.log(`Server started on port ${PORT}`);
+  console.log(`Server started on port ${PORT}`);
 });

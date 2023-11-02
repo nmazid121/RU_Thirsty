@@ -4,6 +4,7 @@ import logo from './images/Logo.PNG';
 import waterIcon from './images/waterIcon.png';
 import { useNavigate } from 'react-router-dom';
 import { GoogleMap, Marker, LoadScript, InfoWindow } from '@react-google-maps/api';
+import axios from 'axios'
 
 const containerStyle = {
     width: '90%',
@@ -67,8 +68,23 @@ function Busch() {
                 };
             }
             return marker;
-        });        
-    
+        });
+        
+        const newMarkerData = {
+            lat: selectedMarker.lat,
+            lng: selectedMarker.lng,
+            // Add other necessary data if needed
+        };
+        
+        axios.post('http://localhost:5000/api/markers', newMarkerData)
+            .then(response => {
+                console.log(response.data);
+                // You can set a state or provide feedback to the user if needed
+            })
+            .catch(error => {
+                console.error('Error adding marker:', error);
+            });
+        
         setMarkers(updatedMarkers);
         setSelectedMarker(null);
     
@@ -113,11 +129,13 @@ function Busch() {
     };
 
     useEffect(() => {
-        return () => {
-            if (confirmationTimeout.current) {
-                clearTimeout(confirmationTimeout.current);
-            }
-        };
+        axios.get('http://localhost:5000/api/markers')
+            .then(response => {
+                setMarkers(response.data);  // Update the markers state with the fetched data
+            })
+            .catch(error => {
+                console.error('Error fetching markers:', error);
+            });
     }, []);
 
     return (
