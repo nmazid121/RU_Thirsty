@@ -4,16 +4,14 @@ import logo from './images/Logo.PNG';
 import waterIcon from './images/waterIcon.png';
 import { useNavigate } from 'react-router-dom';
 import { GoogleMap, Marker, LoadScript, InfoWindow } from '@react-google-maps/api';
-import axios from 'axios'
 
 const containerStyle = {
     width: '90%',
-    height: '700px',
+    height: '400px',
 };
 
 function CollegeAve() {
-    const initialCenter = { lat: 40.5008, lng: -74.4474 };
-    const [center] = React.useState(initialCenter);
+    const center = { lat: 40.5008, lng: -74.4474 };
     const [markers, setMarkers] = React.useState([]);
     const [selectedMarker, setSelectedMarker] = React.useState(null);
     const [locationName, setLocationName] = React.useState('');
@@ -28,77 +26,37 @@ function CollegeAve() {
     };
 
     const onMapClick = (event) => {
-        // Capture latitude and longitude of the marker
-        const lat = event.latLng.lat();
-        const lng = event.latLng.lng();
-    
-        // Create a copy of the existing markers array
-        const updatedMarkers = [...markers];
-    
-        // Create a new marker object
-        const newMarker = { lat, lng, name: locationName, description: locationDescription };
-
-    
-        // Add the new marker to the existing array
-        updatedMarkers.push(newMarker);
-    
-        // Update the markers state with the new array
-        setMarkers(updatedMarkers);
-    
+        // If an InfoWindow is already open, remove the last pin and close the InfoWindow
+        if (selectedMarker) {
+            handleInfoWindowClose();
+            return;
+        }
+        
+        const newMarker = { lat: event.latLng.lat(), lng: event.latLng.lng() };
+        setMarkers([...markers, newMarker]);
         setSelectedMarker(newMarker);
         setLocationName('');
         setLocationDescription('');
-        console.log("Markers array: ", markers);
-    };    
+    };
 
     const handleOkClick = () => {
         setShowConfirmation(true);
-        if (!selectedMarker) {
-            return;
-        }
-    
-        // Update the selected marker's properties with locationName and locationDescription
-        const updatedMarkers = markers.map((marker) => {
-            if (marker === selectedMarker) {
-                return {
-                    ...marker,
-                    name: locationName,
-                    description: locationDescription,
-                };
-            }
-            return marker;
-        });
-        
-        const newMarkerData = {
-            description: locationDescription,
-            lat: selectedMarker.lat,
-            lng: selectedMarker.lng,
-            name: locationName,
-        };
-        
-        axios.post('http://localhost:5000/api/markers', newMarkerData)
-            .then(response => {
-                console.log(response.data);
-                // You can set a state or provide feedback to the user if needed
-            })
-            .catch(error => {
-                console.error('Error adding marker:', error);
-            });
-        
-        setMarkers(updatedMarkers);
         setSelectedMarker(null);
-    
         if (confirmationTimeout.current) {
             clearTimeout(confirmationTimeout.current);
         }
         confirmationTimeout.current = setTimeout(() => {
             setShowConfirmation(false);
         }, 2000);
-        console.log("Markers array: ", updatedMarkers);
     };
-    
 
     const handleInfoWindowClose = () => {
+        setMarkers(prevMarkers => {
+            // Remove the last marker
+            const updatedMarkers = [...prevMarkers];
+            updatedMarkers.pop();
+            return updatedMarkers;
+        });
         setSelectedMarker(null);
     };
 
@@ -123,20 +81,18 @@ function CollegeAve() {
     };
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/markers')
-            .then(response => {
-                setMarkers(response.data);  // Update the markers state with the fetched data
-            })
-            .catch(error => {
-                console.error('Error fetching markers:', error);
-            });
+        return () => {
+            if (confirmationTimeout.current) {
+                clearTimeout(confirmationTimeout.current);
+            }
+        };
     }, []);
 
     return (
         <div className="CollegeAve">
             <header className="App-header">
                 <img id="logo" src={logo} alt="Logo" />
-                <h1>You are at CollegeAve</h1>
+                <h2>You are at CollegeAve</h2>
                 {showConfirmation && 
                     <div style={{ 
                         position: 'fixed', 
@@ -155,16 +111,12 @@ function CollegeAve() {
                         Water fountain has been marked!
                     </div>
                 }
-               <div style={{
-                     display: 'flex',       // Using flex for easier alignment and spacing
-                     justifyContent: 'center',  // Center-align the buttons horizontally
-                     gap: '10px'              // Spacing between the buttons
-                }}>
-                    <button className="homeButton" onClick={navigateHome}>
+                <button className="homeButton" onClick={navigateHome} style={{ 
+                        margin: '10px',  // Added margin for spacing
+                    }}>
                     Home
                 </button>
-                </div>
-                <button className = "ShowMyLocation"
+                <button 
                     onClick={getUserLocation} 
                     style={{ 
                         backgroundColor: '#00838F',  // Background color
@@ -176,15 +128,15 @@ function CollegeAve() {
                         fontSize: '16px',  // Font size
                         fontWeight: 'bold',  // Bold text
                         transition: 'background-color 0.3s',  // Transition effect
-                        marginBottom: '10px'
+                        margin: '10px'
                     }}
                     onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#006064'}  // Darker background on hover
                     onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#00838F'}  // Restore background color
                 >Show My Location</button>
-                <LoadScript googleMapsApiKey="AIzaSyBEdVNIaYp-brYH2bDBj9b5H82a_ImiACc">
+                <LoadScript googleMapsApiKey="PASTE API KEY HERE">
                     <GoogleMap
                         mapContainerStyle={containerStyle}
-                        center={center} // Use the separate center state here
+                        center={center}
                         zoom={15}
                         onClick={onMapClick}
                         mapTypeId={'satellite'}
@@ -195,8 +147,6 @@ function CollegeAve() {
                                 position={marker} 
                                 onClick={() => {
                                     setSelectedMarker(marker);
-                                    setLocationName(marker.name || '');
-                                    setLocationDescription(marker.description || '');
                                 }}
                                 icon={{url: waterIcon, scaledSize: new window.google.maps.Size(50, 50) }}
                             />
@@ -230,23 +180,8 @@ function CollegeAve() {
                                         rows={3}
                                     />
                                     <br />
-
-                                    
                                     <button 
-                                        style={{ 
-                                            marginTop: '10px', 
-                                            backgroundColor: '#00838F', 
-                                            color: 'white', 
-                                            padding: '0 15px',  // Adjusted vertical padding to zero
-                                            lineHeight: '24px', // This can help center the text vertically
-                                            height: '24px',     // Explicit height for the button
-                                            borderRadius: '4px', 
-                                            border: 'none', 
-                                            cursor: 'pointer', 
-                                            fontSize: '12px',
-                                            width: '60px', 
-                                            textAlign: 'center' // Ensure text is centered horizontally
-                                        }}
+                                        style={{ marginTop: '10px', backgroundColor: '#00838F', color: 'white', padding: '5px 10px', borderRadius: '4px', border: 'none', cursor: 'pointer' }}
                                         onClick={handleOkClick}
                                     >
                                         OK
