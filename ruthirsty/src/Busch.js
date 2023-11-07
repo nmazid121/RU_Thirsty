@@ -5,6 +5,8 @@ import waterIcon from './images/waterIcon.png';
 import { useNavigate } from 'react-router-dom';
 import { GoogleMap, Marker, LoadScript, InfoWindow } from '@react-google-maps/api';
 import axios from 'axios'
+// import 'dotenv/config'
+
 
 const containerStyle = {
     width: '90%',
@@ -20,6 +22,8 @@ function Busch() {
     const [locationDescription, setLocationDescription] = React.useState('');
     const [showConfirmation, setShowConfirmation] = React.useState(false);
     const confirmationTimeout = useRef(null);
+
+   
 
     const navigate = useNavigate();
 
@@ -76,7 +80,7 @@ function Busch() {
             name: locationName,
         };
         
-        axios.post('http://localhost:5000/api/markers', newMarkerData)
+        axios.post('/api/markers', newMarkerData)
             .then(response => {
                 console.log(response.data);
                 // You can set a state or provide feedback to the user if needed
@@ -123,7 +127,7 @@ function Busch() {
     };
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/markers')
+        axios.get('/api/markers')
             .then(response => {
                 setMarkers(response.data);  // Update the markers state with the fetched data
             })
@@ -181,7 +185,7 @@ function Busch() {
                     onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#006064'}  // Darker background on hover
                     onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#00838F'}  // Restore background color
                 >Show My Location</button>
-                <LoadScript googleMapsApiKey="AIzaSyAqjXxc7kbyMa2DFrDz3vYgsuytiW6RaSI">
+                <LoadScript googleMapsApiKey={process.env.REACT_APP_API_KEY}>
                     <GoogleMap
                         mapContainerStyle={containerStyle}
                         center={center} // Use the separate center state here

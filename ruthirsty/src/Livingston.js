@@ -181,7 +181,7 @@ function Livingston() {
                     onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#006064'}  // Darker background on hover
                     onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#00838F'}  // Restore background color
                 >Show My Location</button>
-                <LoadScript googleMapsApiKey="AIzaSyBEdVNIaYp-brYH2bDBj9b5H82a_ImiACc">
+                <LoadScript googleMapsApiKey={process.env.REACT_APP_API_KEY}>
                     <GoogleMap
                         mapContainerStyle={containerStyle}
                         center={center} // Use the separate center state here
