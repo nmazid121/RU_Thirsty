@@ -80,7 +80,7 @@ function Busch() {
             name: locationName,
         };
         
-        axios.post('${process.env.REACT_APP_API_URL}/api/markers', newMarkerData)
+        axios.post('https://ruthirsty.onrender.com/api/markers', newMarkerData)
             .then(response => {
                 console.log(response.data);
                 // You can set a state or provide feedback to the user if needed
@@ -127,7 +127,7 @@ function Busch() {
     };
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/markers')
+        axios.get('https://ruthirsty.onrender.com/api/markers')
             .then(response => {
                 setMarkers(response.data);  // Update the markers state with the fetched data
             })
