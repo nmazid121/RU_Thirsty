@@ -65,6 +65,8 @@ If someone clones it, explain how they can run the project, which command lines 
 ## 📸 Video or Image:
 It’s always beneficial to showcase. Give them the result now instead of having them go to a website and then look for it.
 
+https://youtu.be/q8x6ACYs3gg
+
 
 https://ruthirsty.xyz/
 ![image](https://github.com/nmazid121/RU_Thirsty/assets/129209117/ffcac6c6-ef4c-4ed6-b19e-61a9ad01fbc4)
