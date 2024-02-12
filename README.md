@@ -2,7 +2,9 @@
 
 ## 📸 Video / Demo of the Project:
 
-Can be used at : https://ruthirsty.xyz/
+Can be used at : **https://ruthirsty.xyz/**
+
+
 https://github.com/nmazid121/RU_Thirsty/assets/129209117/04a1fb7a-cfdf-4fe5-88e3-df214510407a
 
 ## 🎋 Intro
