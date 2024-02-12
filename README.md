@@ -1,5 +1,9 @@
 # RUThirsty
 
+## 📸 Video / Demo of the Project:
+
+https://github.com/nmazid121/RU_Thirsty/assets/129209117/04a1fb7a-cfdf-4fe5-88e3-df214510407a
+
 ## 🎋 Intro
 
 "RUThirsty" is a full-stack web application designed to help Rutgers University students in New Brunswick locate water fountains across campus. Utilizing Google Maps for real-time display, it offers an intuitive and user-friendly interface for finding the nearest water fountain. RUThirsty enhances campus life by making hydration convenient and accessible for all students.
@@ -57,24 +61,15 @@ What I learned: The use of Mongoose, an Object Data Modeling (ODM) library for M
 - **MongoDB Connection and Error Handling:** How to connect to MongoDB using Mongoose and handle connection errors or success events by outputting a success or fail message in the console. This is essential for ensuring that the application can interact with the database before starting the server.
 
 ## ✨ Improvement:
-Nothing is perfect. Write down what could have been improved.
+- UI/UX Design can be much nicer although the site is fairly simple to use
+- Allowing the user to delete the markers that they added, which would require user sign in
+- Allowing the user to upload a picture of the exact location of where the fountain is
 
 ## 🚦 Running the Project:
 If someone clones it, explain how they can run the project, which command lines need to be run, etc.
 
-## 📸 Video or Image:
-It’s always beneficial to showcase. Give them the result now instead of having them go to a website and then look for it.
+1) Install Node, Install @react-google-maps/api, install express, and any other additional node packages and modules.
+2) Go to the file path 'ruthirsty-app\RU_Thirsty\ruthirsty>' and run 'npm start' in the console
+3) Go to the file path 'ruthirsty-app\RU_Thirsty\ruthirsty\server>' and run 'node server.js' in the console
+4) Enjoy !
 
-https://github.com/nmazid121/RU_Thirsty/assets/129209117/29a44756-b775-47ce-b041-42c42bb20d1b
-
-https://youtu.be/q8x6ACYs3gg
-
-
-https://ruthirsty.xyz/
-![image](https://github.com/nmazid121/RU_Thirsty/assets/129209117/ffcac6c6-ef4c-4ed6-b19e-61a9ad01fbc4)
-
-1) Choose which campus you are on
-2) Place a marker down
-3) Give the title for the marker and extra information in the description box if needed
-
-Click on other markers to read the title and description for its location.
