@@ -66,7 +66,7 @@ What I learned: The use of Mongoose, an Object Data Modeling (ODM) library for M
 - Allowing the user to upload a picture of the exact location of where the fountain is
 
 ## 🚦 Running the Project:
-If someone clones it, explain how they can run the project, which command lines need to be run, etc.
+If you choose to clone this project, here's how you can run it : 
 
 1) Install Node, Install @react-google-maps/api, install express, and any other additional node packages and modules.
 2) Go to the file path 'ruthirsty-app\RU_Thirsty\ruthirsty>' and run 'npm start' in the console
