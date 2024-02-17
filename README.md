@@ -23,7 +23,6 @@ https://github.com/nmazid121/RU_Thirsty/assets/129209117/04a1fb7a-cfdf-4fe5-88e3
 - Python
 
 ## 👩🏽‍🍳 Features:
-Describe what your project can do, like what the user can do. Include all features, every little detail matters.
 
 In case you are thirsty on Rutgers University, you can open the website and :
 1) Choose the campus you are currently on
