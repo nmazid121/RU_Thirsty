@@ -5,8 +5,6 @@ import waterIcon from './images/waterIcon.png';
 import { useNavigate } from 'react-router-dom';
 import { GoogleMap, Marker, LoadScript, InfoWindow } from '@react-google-maps/api';
 import axios from 'axios'
-// import 'dotenv/config'
-
 
 const containerStyle = {
     width: '90%',
